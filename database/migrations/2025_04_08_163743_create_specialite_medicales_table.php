@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('nom')->unique();               // ex : patient, medecin, administrateur
-            $table->string('description')->nullable();       // Description du rôle
+        Schema::create('specialite_medicales', function (Blueprint $table) {
+            $table->id();  
+            $table->string('libelle');    // Exemple: "Cardiologie", "Dermatologie", etc.
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('specialite_medicales');
     }
 };
