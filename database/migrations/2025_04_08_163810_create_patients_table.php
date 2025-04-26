@@ -6,32 +6,34 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('patients', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('utilisateur_id'); // Clé étrangère vers 'utilisateurs'
+            $table->id(); // Identifiant auto-incrémenté (clé primaire)
             
-            $table->string('nss');           // Numéro de sécu, par exemple
-            $table->text('informations');    // Infos supplémentaires du patient
-            // Ou d’autres champs selon vos besoins métier
-
-            $table->timestamps();
-
-            // Définition de la clé étrangère
+            // Optionnel : Si un lien vers la table 'utilisateurs' est nécessaire
+            $table->unsignedBigInteger('utilisateur_id')->nullable();
             $table->foreign('utilisateur_id')
                   ->references('id')
                   ->on('utilisateurs')
                   ->onDelete('cascade');
+
+            // Le NNS (Numéro National de Santé) sera unique pour chaque patient
+            $table->string('nss')->unique();
+
+            // Informations personnelles essentielles
+            $table->string('nom');
+            $table->string('prenom');
+            $table->date('date_naissance');
+            $table->string('lieu_naissance');
+
+            // Optionnel : Autres informations complémentaires
+            $table->text('informations')->nullable();
+            
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('patients');

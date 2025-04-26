@@ -13,16 +13,19 @@ return new class extends Migration
     {
         Schema::create('rendez_vous', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('patient_id');  // Foreign Key vers patients
-            $table->unsignedBigInteger('medecin_id');  // Foreign Key vers medecins
 
-            $table->dateTime('date_heure');
-            $table->string('sujet');  // Objet du rendez-vous ou motif
-            // Tout autre champ nécessaire
+            // Clés étrangères
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('medecin_id');
+
+            // Champs du rendez-vous
+            $table->dateTime('date_heure');            // Date et heure du rendez-vous
+            $table->string('sujet');                   // Sujet ou motif du rendez-vous
+            $table->boolean('is_validated')->default(false); // Validation du rendez-vous (par défaut non validé)
 
             $table->timestamps();
 
-            // Clés étrangères
+            // Contraintes de clé étrangère
             $table->foreign('patient_id')
                   ->references('id')
                   ->on('patients')

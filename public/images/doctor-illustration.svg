@@ -1,0 +1,24 @@
+<svg width="400" height="500" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .skin { fill: #8D5524; }
+        .coat { fill: #FFFFFF; }
+        .stethoscope { fill: #FF6B6B; }
+        .leaves { fill: #00A99D; }
+        .flower { fill: #FF9F1C; }
+    </style>
+    <!-- Feuilles en arrière-plan -->
+    <path class="leaves" d="M50,400 C0,350 0,250 50,200 C100,150 200,150 250,200 C300,250 300,350 250,400 C200,450 100,450 50,400 Z"/>
+    <path class="leaves" d="M300,450 C250,400 250,300 300,250 C350,200 450,200 500,250 C550,300 550,400 500,450 C450,500 350,500 300,450 Z"/>
+    
+    <!-- Fleur -->
+    <path class="flower" d="M80,380 C60,360 60,320 80,300 C100,280 140,280 160,300 C180,320 180,360 160,380 C140,400 100,400 80,380 Z"/>
+    
+    <!-- Corps du médecin -->
+    <path class="coat" d="M150,150 L250,150 L270,400 L130,400 Z"/>
+    
+    <!-- Tête -->
+    <circle class="skin" cx="200" cy="100" r="50"/>
+    
+    <!-- Stéthoscope -->
+    <path class="stethoscope" d="M180,200 C160,220 160,240 180,260 L220,260 C240,240 240,220 220,200 Z"/>
+</svg> 

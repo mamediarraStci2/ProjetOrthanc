@@ -1,5 +1,7 @@
 <?php
 
+set_time_limit(120); // Augmente la limite à 120 secondes
+
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
